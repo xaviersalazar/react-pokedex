@@ -1,20 +1,29 @@
+import PokeCard from "./components/PokeCard";
+import { useState, useEffect } from 'react';
+
 
 function App() {
-  return (
+
+    //use state for all pokemon
+    const [pokemonData, setPokemonData] = useState(null)
+
+    //use effect for fetch call
+    useEffect(() => {
+        fetch('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0')
+            .then(res => res.json())
+            .then(data => setPokemonData(prevState => data))
+    }, [])
+
+    console.log(pokemonData);
+    const pokemonElements = pokemonData?.results?.map(poke => <PokeCard key={poke.name} name={poke.name} url={poke.url}/>)
+
+
+    return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                </div>
-            </div>
-        </div>
+        <h1 className="text-3xl font-bold underline">
+        Pokedex.
+        </h1>
+        {pokemonElements}
     </div>
   );
 }
