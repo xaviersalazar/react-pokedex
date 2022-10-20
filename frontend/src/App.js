@@ -1,20 +1,41 @@
+import { useEffect, useState } from "react";
+import PokemonCard from "./components/PokemonCard";
+
+const URL = "https://pokeapi.co/api/v2/pokemon";
 
 function App() {
+  const [pokemonInfo, setPokemonInfo] = useState(null);
+
+  useEffect(() => {
+    getPokemonInfo();
+  }, []);
+
+  const getPokemonInfo = async () => {
+    fetch(`${URL}?limit=30&offset=0`)
+      .then((response) => response.json())
+      .then((response) => {
+        if (response) {
+          console.log(response);
+          setPokemonInfo(response);
+        }
+      });
+  };
+
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                </div>
-            </div>
+    <div>
+      <h1 className="text-4xl font-bold text-center mt-4">
+        pokedex<span className="text-red-500">.</span>
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-y-8 md:gap-x-8 lg:gap-x-12 mt-12 px-12 lg:px-24">
+          {pokemonInfo &&
+            pokemonInfo.results.map((result) => (
+              <PokemonCard
+                key={result.name}
+                url={result.url}
+                name={result.name}
+              />
+            ))}
         </div>
+      </h1>
     </div>
   );
 }
