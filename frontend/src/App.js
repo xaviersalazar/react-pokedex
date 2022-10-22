@@ -1,5 +1,6 @@
 import PokeCard from "./components/PokeCard";
 import { useState, useEffect } from 'react';
+import Header from "./components/Header";
 
 
 function App() {
@@ -21,14 +22,14 @@ function App() {
 
 
     return (
-    <div className="container mx-auto">
-        <h1 className="text-3xl font-bold text-center">
-        Pokedex.
-        </h1>
-        <div className="flex flex-wrap justify-center gap-7">
-            {pokemonGrid}
-        </div>
-    </div>
+        <>
+            <Header />
+            <div className="container mx-auto">
+                <div className="flex flex-wrap justify-center gap-7">
+                    {pokemonGrid}
+                </div>
+            </div>
+        </>
   );
 }
 
