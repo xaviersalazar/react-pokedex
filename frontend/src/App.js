@@ -14,16 +14,20 @@ function App() {
             .then(data => setPokemonData(prevState => data))
     }, [])
 
-    console.log(pokemonData);
-    const pokemonElements = pokemonData?.results?.map(poke => <PokeCard key={poke.name} name={poke.name} url={poke.url}/>)
+    const pokemonGrid = pokemonData?.results?.map(poke => <PokeCard
+        key={poke.name}
+        name={poke.name}
+        url={poke.url}/>)
 
 
     return (
-    <div className="App">
-        <h1 className="text-3xl font-bold underline">
+    <div className="container mx-auto">
+        <h1 className="text-3xl font-bold text-center">
         Pokedex.
         </h1>
-        {pokemonElements}
+        <div className="flex flex-wrap justify-center gap-7">
+            {pokemonGrid}
+        </div>
     </div>
   );
 }
