@@ -16,14 +16,21 @@ const PokeCard = (props) => {
             )
         )
     }
+    const getType = () => {
+        return pokemon?.types[0]?.type.name
+    }
 
     return (
         <div className="card w-80 bg-base-100 shadow-xl">
-            <figure>
-                <img src={pokemon?.sprites.front_default} alt={props.name}  />
-            </figure>
+
             <div className="card-body">
-                <h2 className="card-title">{props.name}</h2>
+                <div className="flex justify-between items-center">
+                    <h2 className="card-title">{props.name}</h2>
+                    <div className="badge badge-secondary">{getType()}</div>
+                </div>
+                <figure>
+                    <img src={pokemon?.sprites.front_default} alt={props.name}  />
+                </figure>
 
                 {getStats()}
 
