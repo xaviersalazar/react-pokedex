@@ -1,4 +1,4 @@
-const PaginationButton = () => {
+const PaginationBtn = () => {
     return (
         <div className="btn-group">
             <button className="btn">1</button>
@@ -8,4 +8,4 @@ const PaginationButton = () => {
         </div>
     )
 }
-export default PaginationButton
+export default PaginationBtn

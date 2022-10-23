@@ -1,6 +1,7 @@
 import PokeCard from "./components/PokeCard";
 import { useState, useEffect } from 'react';
 import Header from "./components/Header";
+import PaginationBtn from "./components/Button/PaginationBtn";
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center gap-7">
                     {pokemonGrid}
+                </div>
+                <div className="flex justify-center p-6">
+                    <PaginationBtn />
                 </div>
             </div>
         </>
