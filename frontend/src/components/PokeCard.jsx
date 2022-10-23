@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import ModalBtn from "./Button/ModalBtn";
 
 const PokeCard = (props) => {
     const [pokemon, setPokemon] = useState(null)
@@ -35,7 +36,7 @@ const PokeCard = (props) => {
                 {getStats()}
 
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View More</button>
+                    <ModalBtn />
                 </div>
             </div>
         </div>
