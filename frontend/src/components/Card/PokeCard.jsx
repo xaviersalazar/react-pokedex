@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import ModalBtn from "./Button/ModalBtn";
+import ModalBtn from "../Button/ModalBtn";
 
 const PokeCard = (props) => {
     const [pokemon, setPokemon] = useState(null)

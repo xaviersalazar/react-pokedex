@@ -1,4 +1,4 @@
-import PokeCard from "./components/PokeCard";
+import PokeCard from "./components/Card/PokeCard";
 import { useState, useEffect } from 'react';
 import Header from "./components/Header";
 import PaginationBtn from "./components/Button/PaginationBtn";
