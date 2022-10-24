@@ -29,7 +29,7 @@ const PokeCard = (props) => {
                     <h2 className="card-title">{props.name}</h2>
                     <div className="badge badge-secondary">{getType()}</div>
                 </div>
-                <figure className="border-2 rounded-md">
+                <figure className="border-2 rounded-md bg-gradient-to-r from-white via-blue-250 to-blue-500">
                     <img src={pokemon?.sprites.front_default} alt={props.name}  />
                 </figure>
 
