@@ -33,7 +33,7 @@ function App() {
                     {pokemonGrid}
                 </div>
                 <div className="flex justify-center p-6">
-                    <PaginationBtn nextPage={nextPage} prevPage={prevPage} />
+                    <PaginationBtn nextPage={nextPage} prevPage={prevPage} offsetPage={offsetPage} />
                 </div>
             </div>
         </>
