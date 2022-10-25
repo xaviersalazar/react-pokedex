@@ -6,21 +6,32 @@ import PaginationBtn from "./components/Button/PaginationBtn";
 
 function App() {
 
-    //use state for all pokemon
     const [pokemonData, setPokemonData] = useState(null)
+    const [limitPage, setLimitPage] = useState(30)
+    const [offsetPage, setOffsetPage] = useState(0)
 
-    //use effect for fetch call
+
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0')
+        fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limitPage}&offset=${offsetPage}`)
             .then(res => res.json())
             .then(data => setPokemonData(prevState => data))
-    }, [])
+    }, [limitPage, offsetPage])
 
     const pokemonGrid = pokemonData?.results?.map(poke => <PokeCard
         key={poke.name}
         name={poke.name}
         url={poke.url}/>)
 
+    const nextPage = () => {
+        setLimitPage(prevState => prevState + 30)
+        setOffsetPage(prevState => prevState + 30)
+        console.log(limitPage);
+        console.log(offsetPage);
+    }
+    const prevPage = () => {
+        setLimitPage(prevState => prevState - 30)
+        setOffsetPage(prevState => prevState - 30)
+    }
 
     return (
         <>
@@ -30,7 +41,7 @@ function App() {
                     {pokemonGrid}
                 </div>
                 <div className="flex justify-center p-6">
-                    <PaginationBtn />
+                    <PaginationBtn nextPage={nextPage} prevPage={prevPage} />
                 </div>
             </div>
         </>

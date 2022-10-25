@@ -10,7 +10,6 @@ const ViewMoreCard = (props) => {
             .then(data => setSpecies(data))
     }, [])
 
-    console.log(species);
     return (
         <>
             {species &&

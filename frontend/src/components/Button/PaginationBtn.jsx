@@ -1,10 +1,8 @@
-const PaginationBtn = () => {
+const PaginationBtn = (props) => {
     return (
-        <div className="btn-group">
-            <button className="btn">1</button>
-            <button className="btn btn-active">2</button>
-            <button className="btn">3</button>
-            <button className="btn">4</button>
+        <div className="btn-group grid grid-cols-2">
+            <button className="btn btn-outline" onClick={props.prevPage}>Previous page</button>
+            <button className="btn btn-outline" onClick={props.nextPage}>Next</button>
         </div>
     )
 }
