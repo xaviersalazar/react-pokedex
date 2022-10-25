@@ -25,8 +25,6 @@ function App() {
     const nextPage = () => {
         setLimitPage(prevState => prevState + 30)
         setOffsetPage(prevState => prevState + 30)
-        console.log(limitPage);
-        console.log(offsetPage);
     }
     const prevPage = () => {
         setLimitPage(prevState => prevState - 30)
