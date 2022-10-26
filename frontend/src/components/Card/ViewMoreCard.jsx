@@ -26,7 +26,7 @@ const ViewMoreCard = (props) => {
                         {getAbilities}
                     </div>
                     <ul>
-                        <li>All Evolutions</li>
+                        {species.evolves_from_species && <li>Previous Evolution - {species.evolves_from_species.name}</li>}
                         <li>Habitat - {species.habitat.name}</li>
                         <li>Height - {props.pokemon?.height}</li>
                         <li>Weight - {props.pokemon?.weight}</li>
