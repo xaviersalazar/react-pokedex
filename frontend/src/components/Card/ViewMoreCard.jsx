@@ -10,14 +10,21 @@ const ViewMoreCard = (props) => {
             .then(data => setSpecies(data))
     }, [])
 
+    const getAbilities = props.pokemon.abilities.map(a => {
+        return (
+            <div key={a.ability.name} className="badge badge-outline ">{a.ability.name}</div>
+        )
+    })
     return (
         <>
             {species &&
                 <div>
                     <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
                     <p className="py-4">Welcome to the modal that will display the details below about the Pokemon you chose!</p>
+                    <div className="flex gap-x-1">
+                        {getAbilities}
+                    </div>
                     <ul>
-                        <li>Abilities</li>
                         <li>All Evolutions</li>
                         <li>Habitat - {species.habitat.name}</li>
                         <li>Height - {props.pokemon?.height}</li>
