@@ -15,7 +15,7 @@ const ModalBtn = (props) => {
                 <div className="modal-box">
                     {modalClicked && <ViewMoreCard pokemon={props.pokemon}/>}
                     <div className="modal-action">
-                        <label htmlFor={props.id} className="btn">Close</label>
+                        <label htmlFor={props.id} className="btn" onClick={toggleModalClicked}>Close</label>
                     </div>
                 </div>
             </div>

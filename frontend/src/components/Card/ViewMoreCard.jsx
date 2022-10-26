@@ -7,7 +7,10 @@ const ViewMoreCard = (props) => {
     useEffect( () => {
         fetch(props.pokemon.species.url)
             .then(res => res.json())
-            .then(data => setSpecies(data))
+            .then(data => {
+                console.log(data);
+                setSpecies(data)
+            })
     }, [])
 
     const getAbilities = props.pokemon.abilities.map(a => {
