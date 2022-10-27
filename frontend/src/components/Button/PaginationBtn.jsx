@@ -1,6 +1,6 @@
 const PaginationBtn = (props) => {
     return (
-        <div className="">
+        <div className="flex justify-center p-6">
             {props.offsetPage > 0 && <button className="btn btn-outline" onClick={props.prevPage}>Previous</button>}
             <button className="btn btn-outline px-8" onClick={props.nextPage}>Next</button>
         </div>

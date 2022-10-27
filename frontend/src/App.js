@@ -19,9 +19,7 @@ function App() {
             <Header />
             <div className="container mx-auto">
                 <PokemonGrid pokemonData={pokemonData} />
-                <div className="flex justify-center p-6">
-                    <PaginationBtn nextPage={nextPage} prevPage={prevPage} offsetPage={offsetPage} />
-                </div>
+                <PaginationBtn nextPage={nextPage} prevPage={prevPage} offsetPage={offsetPage} />
             </div>
         </>
   );
