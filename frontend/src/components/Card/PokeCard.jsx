@@ -17,7 +17,7 @@ const PokeCard = (props) => {
             )
         )
     }
-    const getType = () => pokemon?.types[0]?.type.name
+    const getType = () => pokemon?.types.map(type => <div className="badge badge-secondary text-xs" key={type.type.name}>{type.type.name}</div>)
 
     return (
         pokemon && (
@@ -26,7 +26,7 @@ const PokeCard = (props) => {
                 <div className="card-body">
                     <div className="flex justify-between items-center">
                         <h2 className="card-title capitalize">{props.name}</h2>
-                        <div className="badge badge-secondary">{getType()}</div>
+                        <div className="flex justify-end gap-x-1">{getType()}</div>
                     </div>
                     <figure className="border-2 rounded-md bg-gradient-to-r from-white via-blue-250 to-blue-500">
                         <img src={pokemon.sprites.front_default} alt={props.name}  />
