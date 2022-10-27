@@ -13,7 +13,10 @@ const PokeCard = (props) => {
     const getStats = () => {
         return (
             pokemon?.stats?.map(item =>
-                <p key={item.stat.name}>{item.stat.name} {item.base_stat}</p>
+                <div key={item.stat.name} className="grid grid-cols-2">
+                    <p className="text-sm text-black">{item.stat.name}</p>
+                    <p className="text-sm">{item.base_stat}</p>
+                </div>
             )
         )
     }
@@ -21,15 +24,15 @@ const PokeCard = (props) => {
 
     return (
         pokemon && (
-            <div className="card w-80 bg-base-100 shadow-xl border-8 border-amber-200">
+            <div className="card w-80 shadow-xl border border-gray-100">
 
                 <div className="card-body">
                     <div className="flex justify-between items-center">
-                        <h2 className="card-title capitalize">{props.name}</h2>
-                        <div className="flex justify-end gap-x-1">{getType()}</div>
+                        <h2 className="card-title capitalize text-black">{props.name}</h2>
+                        <div className="flex justify-end gap-x-1 font-bold">{getType()}</div>
                     </div>
-                    <figure className="border-2 rounded-md bg-gradient-to-r from-white via-blue-250 to-blue-500">
-                        <img src={pokemon.sprites.front_default} alt={props.name}  />
+                    <figure className="border-2 rounded-md bg-gradient-to-r from-white via-blue-250 to-blue-500 h-32 my-4">
+                        <img src={pokemon.sprites.other.dream_world.front_default} alt={props.name} className="max-h-36"   />
                     </figure>
 
                     {getStats()}
