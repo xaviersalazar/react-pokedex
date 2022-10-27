@@ -13,7 +13,7 @@ const ViewMoreCard = (props) => {
 
     const getAbilities = props.pokemon.abilities.map(a => {
         return (
-            <div key={a.ability.name} className="badge badge-outline ">{a.ability.name}</div>
+            <div key={a.ability.name} className="badge badge-accent badge-outline">{a.ability.name}</div>
         )
     })
     return (

@@ -8,7 +8,7 @@ const ModalBtn = (props) => {
 
     return (
         <>
-            <label htmlFor={props.id} className="btn modal-button btn-primary" onClick={toggleModalClicked}>View More</label>
+            <label htmlFor={props.id} className="btn btn-sm modal-button btn-primary" onClick={toggleModalClicked}>View More</label>
 
             <input type="checkbox" id={props.id} className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
