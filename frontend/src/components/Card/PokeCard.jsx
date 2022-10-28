@@ -13,14 +13,13 @@ const PokeCard = (props) => {
     const getStats = () => {
         return (
             pokemon?.stats?.map(item =>
-                <div key={item.stat.name} className="grid grid-cols-2">
-                    <p className="text-sm text-black">{item.stat.name}</p>
-                    <p className="text-sm">{item.base_stat}</p>
+                <div key={item.stat.name} className="text-xs">
+                    <p className="text-black">{item.stat.name} <span className="text-primary text-sm">{item.base_stat}</span></p>
                 </div>
             )
         )
     }
-    const getType = () => pokemon?.types.map(type => <div className="badge badge-secondary text-xs" key={type.type.name}>{type.type.name}</div>)
+    const getType = () => pokemon?.types.map(type => <div key={type.type.name} className={`badge badge-secondary text-xs`}>{type.type.name}</div>)
 
     return (
         pokemon && (
@@ -35,7 +34,9 @@ const PokeCard = (props) => {
                         <img src={pokemon.sprites.other.dream_world.front_default} alt={props.name} className="max-h-36"   />
                     </figure>
 
-                    {getStats()}
+                    <div className="grid grid-cols-2 justify-center">
+                        {getStats()}
+                    </div>
 
                     <div className="card-actions justify-end">
                         <ModalBtn id={pokemon.id} pokemon={pokemon} />
