@@ -39,7 +39,12 @@ const PokeCard = (props) => {
                     </div>
 
                     <div className="card-actions justify-end">
-                        <ModalBtn id={pokemon.id} pokemon={pokemon} />
+                        <ModalBtn
+                            id={pokemon.id}
+                            pokemon={pokemon}
+                            pokemonName={props.name}
+                            getType={getType()}
+                        />
                     </div>
                 </div>
             </div>
