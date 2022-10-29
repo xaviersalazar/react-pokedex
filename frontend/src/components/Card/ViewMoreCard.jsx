@@ -6,6 +6,8 @@ const ViewMoreCard = (props) => {
     const [effect, setEffect] = useState(null)
     const getAbilities = props.pokemon.abilities.map(a => <div key={a.ability.name} className="badge badge-secondary badge-outline">{a.ability.name}</div>)
     const getEffectDescription = effect?.effect_entries[1].effect;
+    const decimeterToFeet = (num) => num / 3.048;
+    const hectogramsToPounds = (num) => num / 4.536;
 
     useEffect( () => {
         fetch(props.pokemon.species.url)
@@ -36,8 +38,8 @@ const ViewMoreCard = (props) => {
                     </figure>
 
                     <div className="flex justify-evenly text-xs bg-gray-100 rounded-b-lg text-black mt-1 mb-6">
-                        <p className="grow-0">Ht - {props.pokemon?.height}</p>
-                        <p className="grow-0">Wt - {props.pokemon?.weight}</p>
+                        <p className="grow-0">Ht - {decimeterToFeet(props.pokemon?.height).toFixed(2)}ft</p>
+                        <p className="grow-0">Wt - {hectogramsToPounds(props.pokemon?.weight).toFixed(0)}lbs</p>
                     </div>
                     <div className="my-2">
                         <h3 className="font-bold text-lg text-black">Abilities</h3>
