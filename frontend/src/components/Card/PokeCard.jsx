@@ -4,22 +4,18 @@ import ModalBtn from "../Button/ModalBtn";
 const PokeCard = (props) => {
     const [pokemon, setPokemon] = useState(null)
 
+    const getStats = () => pokemon?.stats?.map(item =>
+        <div key={item.stat.name} className="text-xs">
+            <p className="text-black">{item.stat.name} <span className="text-primary text-sm">{item.base_stat}</span></p>
+        </div>)
+
+    const getType = () => pokemon?.types.map(type => <div key={type.type.name} className={`badge badge-secondary text-xs`}>{type.type.name}</div>)
+
     useEffect(() => {
         fetch(props.url)
             .then(res => res.json())
             .then(data => setPokemon(prevState => data))
     }, [])
-
-    const getStats = () => {
-        return (
-            pokemon?.stats?.map(item =>
-                <div key={item.stat.name} className="text-xs">
-                    <p className="text-black">{item.stat.name} <span className="text-primary text-sm">{item.base_stat}</span></p>
-                </div>
-            )
-        )
-    }
-    const getType = () => pokemon?.types.map(type => <div key={type.type.name} className={`badge badge-secondary text-xs`}>{type.type.name}</div>)
 
     return (
         pokemon && (
