@@ -21,7 +21,7 @@ const ModalBtn = (props) => {
                     />}
 
                     <div className="modal-action">
-                        <label htmlFor={props.id} className="btn btn-sm bg-gradient-to-r from-indigo-500 to-pink-500 modal-button text-white border-none shadow-md my-2" onClick={toggleModalClicked}>Close</label>
+                        <label htmlFor={props.id} className="grow-animation btn btn-sm bg-gradient-to-r from-indigo-500 to-pink-500 modal-button text-white border-none shadow-md my-2" onClick={toggleModalClicked}>Close</label>
                     </div>
                 </div>
             </div>
