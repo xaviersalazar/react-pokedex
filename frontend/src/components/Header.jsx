@@ -1,4 +1,6 @@
 import { HiOutlineMoon } from 'react-icons/hi';
+import { BsSun } from 'react-icons/bs';
+
 
 const Header = (props) => {
 
@@ -27,7 +29,7 @@ const Header = (props) => {
                     </button>
                     <button className="btn btn-ghost btn-circle">
                         <div className="indicator">
-                            <HiOutlineMoon className="h-5 w-5" onClick={props.handleThemeSwitch} />
+                            {props.theme === "light" ? <HiOutlineMoon className="h-5 w-5" onClick={props.handleThemeSwitch} /> : <BsSun className="h-5 w-5" onClick={props.handleThemeSwitch} />}
                         </div>
                     </button>
                 </div>
