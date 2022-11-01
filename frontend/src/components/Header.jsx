@@ -1,11 +1,11 @@
 import { HiOutlineMoon } from 'react-icons/hi';
 
-const Header = () => {
+const Header = (props) => {
 
     return (
         <div>
 
-            <div className="navbar  p-10">
+            <div className="navbar dark:bg-slate-800 p-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -19,7 +19,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <a className="btn btn-ghost normal-case text-5xl text-black font-bold">Pokedex<span className="text-secondary">.</span></a>
+                    <a className="btn btn-ghost normal-case text-5xl text-black dark:text-white font-bold">Pokedex<span className="text-secondary">.</span></a>
                 </div>
                 <div className="navbar-end">
                     <button className="btn btn-ghost btn-circle">
@@ -27,7 +27,7 @@ const Header = () => {
                     </button>
                     <button className="btn btn-ghost btn-circle">
                         <div className="indicator">
-                            <HiOutlineMoon className="h-5 w-5" />
+                            <HiOutlineMoon className="h-5 w-5" onClick={props.handleThemeSwitch} />
                         </div>
                     </button>
                 </div>

@@ -11,7 +11,7 @@ const ModalBtn = (props) => {
 
             <input type="checkbox" id={props.id} className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box bg-white">
+                <div className="modal-box bg-white dark:bg-slate-800">
 
                     {modalClicked && <ViewMoreCard
                         pokemonId={props.id}
